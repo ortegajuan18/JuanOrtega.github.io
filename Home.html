@@ -1,0 +1,506 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Soy un artista y creador de contenido colombiano que fusiona la pasión por la música con la fascinación por la psicología. Mi arte es un puente entre lo melódico y lo introspectivo, donde cada nota y palabra invita a la reflexión profunda. En mis composiciones, exploro las complejidades de la experiencia humana, tejiendo melodías que resuenan con las emociones más íntimas. A través de mi canal de YouTube, mi música en SoundCloud y mis escritos, busco inspirar a otros a abrazar su autenticidad y vivir plenamente.">
+    <title>Juan David Ortega - Portafolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #1b1b1d;
+            color: #f8f8f8;
+            overflow-x: hidden;
+            transition: background-color 0.5s ease;
+        }
+        header {
+            padding: 20px 40px;
+            background-color: #2c2c2e;
+            color: #ffffff;
+            position: fixed;
+            top: 0;
+            width: calc(100% - 60px); 
+            margin-right: 30px; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            z-index: 1000;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+        nav {
+            display: flex;
+            gap: 15px; 
+            padding-right: 20px; 
+        }
+        nav > div {
+            position: relative;
+        }
+        nav a {
+            color: #f8f8f8;
+            text-decoration: none;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s;
+        }
+        nav a:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 100%;
+            height: 3px;
+            background-color: #f8f8f8;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        nav a:hover:after, nav a:hover {
+            transform: scaleX(1);
+            color: #f3e4d8;
+        }
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #2c2c2e;
+            padding: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+        }
+        .submenu a {
+            display: block;
+            padding: 10px 20px;
+            white-space: nowrap;
+        }
+        nav > div:hover .submenu {
+            display: block;
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(to bottom right, #16161a, #2b2b2d);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .hero h1 {
+            margin: 0;
+            font-size: 4rem;
+            color: #f3e4d8;
+            letter-spacing: 2px;
+        }
+        .hero p {
+            color: #cfcfcf;
+            font-size: 1.5rem;
+            margin-top: 15px;
+        }
+        .hero .cta-button {
+            display: inline-block;
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px 30px;
+            font-size: 1.5rem;
+            color: #1b1b1d;
+            background-color: #f3e4d8;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            text-decoration: none;
+        }
+        .hero .cta-button:hover {
+            background-color: #ebd4c8;
+            transform: translateY(-5px);
+        }
+        .section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #f3e4d8;
+            margin-bottom: 40px;
+        }
+        .about-content {
+            text-align: center; /* Center the overall alignment */
+        }
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px; /* Space between images */
+            padding: 20px 0;
+        }
+        .image-gallery img {
+            border-radius: 10px;
+            width: 180px;
+            height: auto;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .image-gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        footer {
+            padding: 20px;
+            background-color: #2c2c2e;
+            color: #f8f8f8;
+            text-align: center;
+            position: relative;
+        }
+        footer nav a {
+            color: #d1d1d1;
+            text-decoration: none;
+        }
+
+        .footer-submenu {
+            display: none;
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+            background-color: #2c2c2e;
+            padding: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        footer nav > div:hover .footer-submenu {
+            display: block;
+        }
+
+        .footer-submenu a {
+            display: block;
+            padding: 10px 20px;
+            white-space: nowrap;
+            color: #d1d1d1;
+            text-decoration: none;
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 80%;
+            max-width: 500px;
+            padding: 10px;
+            border: 2px solid #454447;
+            border-radius: 8px;
+            background-color: #2c2c2e;
+            color: #f8f8f8;
+            font-size: 1rem;
+            outline: none;
+            transition: border 0.3s;
+        }
+        .contact-form input:focus, .contact-form textarea:focus {
+            border: 2px solid #f3e4d8;
+        }
+        .contact-form button {
+            padding: 10px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            background-color: #f3e4d8;
+            color: #1b1b1d;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .contact-form button:hover {
+            background-color: #ebd4c8;
+            transform: translateY(-3px);
+        }
+        .contact-methods {
+            margin-top: 20px;
+            text-align: center;
+            color: #d1d1d1;
+            font-size: 1.1rem;
+        }
+        .contact-methods a {
+            color: #f3e4d8;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+        }
+
+        .gallery, .music {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 50px;
+        }
+        .gallery img {
+            width: calc(33% - 30px);
+            margin-bottom: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 10px;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .youtube-gallery, .soundcloud-gallery, .writing-gallery {
+            padding: 20px;
+            margin-top: 30px;
+        }
+        .youtube-gallery h3, .soundcloud-gallery h3, .writing-gallery h3, .music-player h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: #f3e4d8;
+            margin-bottom: 20px;
+        }
+    </style>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("YOUR_USER_ID");
+        })();
+    </script>
+</head>
+<body>
+
+    <header>
+        <h1>Juan Ortega</h1>
+        <nav>
+            <div>
+                <a href="#about">Acerca de</a>
+                <div class="submenu">
+                    <a href="#about-bio">Biografía</a>
+                    <a href="#about-images">Imágenes</a>
+                </div>
+            </div>
+            <div>
+                <a href="#blog">Escritos</a>
+                <div class="submenu">
+                    <a href="#poemario">Poemario</a>
+                    <a href="#versos">Versos cortos</a>
+                    <a href="#texts">Textos narrativos</a>
+                </div>
+            </div>
+            <div>
+                <a href="#gallery">Fotos</a>
+            </div>
+            <div>
+                <a href="#music">Música</a>
+            </div>
+            <div>
+                <a href="#contact">Contacto</a>
+            </div>
+            <div>
+                <a href="#">Sitios</a>
+                <div class="submenu">
+                    <a href="https://www.youtube.com/@OrtegaFlorez">YouTube</a>
+                    <a href="https://www.instagram.com/ort__18/?hl=es">Instagram</a>
+                    <a href="https://co.pinterest.com/JuanOrtega_18/">Pinterest</a>
+                    <a href="https://soundcloud.com/ortega_18">SoundCloud</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div>
+            <h1>
+                <span>¡</span><span>H</span><span>o</span><span>l</span><span>a</span><span>,</span>
+                <span> </span><span>s</span><span>o</span><span>y</span><span> </span>
+                <span>J</span><span>u</span><span>a</span><span>n</span><span>!</span>
+            </h1>
+            <p>Descubre mi mundo creativo donde arte y contenido se fusionan.</p>
+            <a href="#gallery" class="cta-button">Explora Más</a>
+        </div>
+    </section>
+
+    <audio id="piano-sound" src="path_to_your_piano_sound.mp3" preload="auto"></audio>
+
+    <div class="section about" id="about">
+        <h2>Acerca de Mí</h2>
+        <div class="about-content">
+            <div class="image-gallery">
+                <img alt="Fotografía de Juan David Ortega, estilo moderno" src="/a/2887a83b-0484-45c6-8d2b-7af4bfb33b8f" width="200" height="200">
+                <img alt="Añadir descripción imagen 2" src="path_to_image_2.jpg" width="200" height="200">
+                <img alt="Añadir descripción imagen 3" src="path_to_image_3.jpg" width="200" height="200">
+                <!-- Add more images as needed -->
+            </div>
+            <p>Con una pasión por el arte y la creación de contenido, mi enfoque está en el crecimiento personal y la transformación. A través de mi canal en YouTube, exploro temas de autenticidad, resiliencia, y desarrollo continuo. Además, comparto mi pasión por la música en SoundCloud, donde mis trabajos musicales reflejan mis inspiraciones y aprendizajes.</p>
+        </div>
+    </div>
+
+    <div class="section gallery" id="gallery">
+        <h2>Galería de Obras</h2>
+        <div class="youtube-gallery">
+            <h3>Videos de YouTube</h3>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/video_id" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="soundcloud-gallery">
+            <h3>Tracks de SoundCloud</h3>
+            <iframe width="100%" height="166" scrolling="no" frameborder="no" 
+                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/track_id&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+            </iframe>
+        </div>
+
+        <div class="writing-gallery">
+            <h3>Escritos</h3>
+            <div>
+                <h4>Poemas</h4>
+                <p>Título del poema: Ausencia</p>
+                <p>Contenido del poema...</p>
+            </div>
+            <div>
+                <h4>Textos Narrativos</h4>
+                <p>Título del texto: Un nuevo comienzo</p>
+                <p>Contenido del texto...</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section music" id="music">
+        <h2>Mi Música</h2>
+        <div class="music-player">
+            <iframe width="100%" height="450" scrolling="no" frameborder="no"
+                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/your_playlist_id&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+            </iframe>
+        </div>
+    </div>
+
+    <div class="section contact" id="contact">
+        <h2>Contacta Conmigo</h2>
+        <form class="contact-form" id="contact-form">
+            <input type="text" name="name" placeholder="Tu Nombre" required>
+            <input type="email" name="email" placeholder="Tu Email" required>
+            <input type="text" name="subject" placeholder="Asunto" required>
+            <textarea name="message" placeholder="Escribe tu Mensaje..." required rows="5"></textarea>
+            <button type="submit">Enviar Mensaje</button>
+        </form>
+        <div class="contact-methods">
+            <p>O sigue mi trabajo en:</p>
+            <a href="https://www.youtube.com/@OrtegaFlorez">YouTube</a> |
+            <a href="https://www.instagram.com/ort__18/?hl=es">Instagram</a> |
+            <a href="https://co.pinterest.com/JuanOrtega_18/">Pinterest</a> |
+            <a href="https://soundcloud.com/ortega_18">SoundCloud</a>
+        </div>
+    </div>
+
+    <footer>
+        <nav>
+            <div>
+                <a href="#home">Inicio</a>
+                <div class="footer-submenu">
+                    <a href="#about-home">Acerca de Inicio</a>
+                </div>
+            </div>
+            <div>
+                <a href="#about">Acerca de</a>
+                <div class="footer-submenu">
+                    <a href="#about-bio">Biografía</a>
+                    <a href="#about-images">Imágenes</a>
+                </div>
+            </div>
+            <div>
+                <a href="#blog">Escritos</a>
+                <div class="footer-submenu">
+                    <a href="#poemario">Poemario</a>
+                    <a href="#versos">Versos cortos</a>
+                    <a href="#texts">Textos narrativos</a>
+                </div>
+            </div>
+            <div>
+                <a href="#gallery">Fotos</a>
+            </div>
+            <div>
+                <a href="#music">Música</a>
+            </div>
+            <div>
+                <a href="#contact">Contacto</a>
+            </div>
+            <div>
+                <a href="#">Sitios</a>
+                <div class="footer-submenu">
+                    <a href="https://www.youtube.com/@OrtegaFlorez">YouTube</a>
+                    <a href="https://www.instagram.com/ort__18/?hl=es">Instagram</a>
+                    <a href="https://co.pinterest.com/JuanOrtega_18/">Pinterest</a>
+                    <a href="https://soundcloud.com/ortega_18">SoundCloud</a>
+                </div>
+            </div>
+        </nav>
+        <p>&copy; 2024 Juan David Ortega. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetElement = document.querySelector(this.getAttribute('href'));
+                if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+
+        const pianoSound = document.getElementById('piano-sound');
+        if (pianoSound) {
+            let pianoSoundPlayed = false;
+
+            document.addEventListener('click', () => {
+                pianoSoundPlayed = true;
+            }, { once: true });
+
+            document.querySelectorAll('.hero h1 span').forEach(span => {
+                span.addEventListener('mouseenter', () => {
+                    if (pianoSoundPlayed) {
+                        pianoSound.currentTime = 0;
+                        pianoSound.play().catch(error => {
+                            console.log("Error playing sound:", error);
+                        });
+                    }
+                });
+            });
+        } else {
+            console.error('Piano sound element not found.');
+        }
+
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(event) {
+                event.preventDefault(); 
+                
+                emailjs.sendForm('your_service_id', 'your_template_id', this)
+                    .then(function() {
+                        alert('El mensaje ha sido enviado exitosamente!');
+                    }, function(error) {
+                        alert('Hubo un error al enviar el mensaje: ' + JSON.stringify(error));
+                    });
+            });
+        } else {
+            console.error('Contact form element not found.');
+        }
+    </script>
+</body>
+</html>
